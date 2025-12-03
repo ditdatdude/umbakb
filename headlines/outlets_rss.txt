@@ -1,2 +1,4 @@
-# CLUSTER A ...
-https://rss.nytimes.com/... [full 45 from earlier]
+https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml
+http://rss.cnn.com/rss/cnn_topstories.rss
+https://feeds.bbci.co.uk/news/rss.xml
+https://www.theguardian.com/uk/rss

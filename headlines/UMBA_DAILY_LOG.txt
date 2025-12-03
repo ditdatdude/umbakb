@@ -1,0 +1,182 @@
+Daily Log
+[2025-12-01 17:31:03] === UMBA DAILY RUN STARTED ===
+[2025-12-01 17:31:03] === STARTING DAILY HEADLINE PULL ===
+[2025-12-01 17:31:05] Failed: rss.nytimes.com
+[2025-12-01 17:31:05] === PULL COMPLETE – 0 new headlines ===
+[2025-12-01 17:31:05] === CALCULATING VOLUME BIAS ===
+[2025-12-01 17:31:05] Volume Bias updated → Left=0 Right=0 VAR=99.90
+[2025-12-01 17:31:05] === DAILY RUN SUCCESSFUL ===
+[2025-12-01 17:35:52] === UMBA DAILY RUN STARTED ===
+[2025-12-01 17:39:33] === UMBA DAILY RUN STARTED ===
+[2025-12-01 17:39:33] === STARTING DAILY HEADLINE PULL ===
+[2025-12-01 17:39:33] Failed: rss.nytimes.com
+[2025-12-01 17:39:51] Timeout/no response: https://feeds.washingtonpost.com/rss/world                               # WaPo World (use /rss/national for US focus)
+[2025-12-01 17:39:51] Failed: feeds.washingtonpost.com
+[2025-12-01 17:39:51] Failed: rss.cnn.com
+[2025-12-01 17:39:53] Failed: feeds.bbci.co.uk
+[2025-12-01 17:39:53] Failed: www.theguardian.com
+[2025-12-01 17:40:02] Failed: www.reuters.com
+[2025-12-01 17:40:03] Failed: www.theatlantic.com
+[2025-12-01 17:40:04] Failed: www.vox.com
+[2025-12-01 17:40:05] Failed: www.bloomberg.com
+[2025-12-01 17:40:06] Failed: www.politico.com
+[2025-12-01 17:40:17] Exception fetching http://feeds.huffingtonpost.com/huffingtonpost/raw_news                  # HuffPost (Raw News) → feeds.huffingtonpost.com/80 getaddrinfo error 11001
+[2025-12-01 17:40:17] Failed: feeds.huffingtonpost.com
+[2025-12-01 17:40:18] Failed: www.msnbc.com
+[2025-12-01 17:40:19] Failed: www.aljazeera.com
+[2025-12-01 17:40:19] Failed: www.nbcnews.com
+[2025-12-01 17:40:22] Failed: abcnews.go.com
+[2025-12-01 17:40:23] Failed: feeds.feedburner.com
+[2025-12-01 17:40:23] Failed: www.huffpost.com
+[2025-12-01 17:40:24] Failed: feeds.a.dj.com
+[2025-12-01 17:40:24] Failed: www.economist.com
+[2025-12-01 17:40:25] Failed: www.ft.com
+[2025-12-01 17:40:25] Failed: www.axios.com
+[2025-12-01 17:40:31] Failed: www.apnews.com
+[2025-12-01 17:40:31] Failed: www.usatoday.com
+[2025-12-01 17:40:31] Failed: www.cbsnews.com
+[2025-12-01 17:40:33] Failed: www.bbc.com
+[2025-12-01 17:40:35] Failed: www.cnn.com
+[2025-12-01 17:40:35] Failed: www.wsj.com
+[2025-12-01 17:40:35] Failed: www.bloomberg.com
+[2025-12-01 17:40:36] Failed: moxie.foxnews.com
+[2025-12-01 17:40:36] Failed: www.dailywire.com
+[2025-12-01 17:40:38] Failed: www.zerohedge.com
+[2025-12-01 17:40:38] Failed: mises.org
+[2025-12-01 17:40:57] Timeout/no response: https://www.newsmax.com/rss/newsfront.xml                                # Newsmax (Newsfront)
+[2025-12-01 17:40:57] Failed: www.newsmax.com
+[2025-12-01 17:40:58] Failed: www.theepochtimes.com
+[2025-12-01 17:41:00] Failed: www.wnd.com
+[2025-12-01 17:41:02] Failed: www.thedailybeast.com
+[2025-12-01 17:41:02] Failed: babylonbee.com
+[2025-12-01 17:41:03] Failed: hotair.com
+[2025-12-01 17:42:04] CRITICAL ERROR: Canceled because the buffer was modified
+[2025-12-01 17:49:25] === UMBA DAILY RUN STARTED ===
+[2025-12-01 17:50:14] === UMBA DAILY RUN STARTED ===
+[2025-12-01 17:50:14] === STARTING DAILY HEADLINE PULL ===
+[2025-12-01 17:50:15] Failed: rss.nytimes.com
+[2025-12-01 17:50:33] Timeout/no response: https://feeds.washingtonpost.com/rss/world                               # WaPo World
+[2025-12-01 17:50:33] Failed: feeds.washingtonpost.com
+[2025-12-01 17:50:33] Failed: rss.cnn.com
+[2025-12-01 17:50:34] Failed: feeds.bbci.co.uk
+[2025-12-01 17:50:35] Failed: www.theguardian.com
+[2025-12-01 17:50:35] Failed: www.reuters.com
+[2025-12-01 17:50:37] Failed: www.theatlantic.com
+[2025-12-01 17:50:37] Failed: www.vox.com
+[2025-12-01 17:50:38] Failed: www.bloomberg.com
+[2025-12-01 17:50:38] Failed: www.politico.com
+[2025-12-01 17:50:49] Exception fetching http://feeds.huffingtonpost.com/huffingtonpost/raw_news                  # HuffPost Raw → feeds.huffingtonpost.com/80 getaddrinfo error 11001
+[2025-12-01 17:50:49] Failed: feeds.huffingtonpost.com
+[2025-12-01 17:50:51] Failed: www.msnbc.com
+[2025-12-01 17:50:51] Failed: www.aljazeera.com
+[2025-12-01 17:50:52] Failed: www.nbcnews.com
+[2025-12-01 17:50:52] Failed: abcnews.go.com
+[2025-12-01 17:50:53] Failed: feeds.feedburner.com
+[2025-12-01 17:50:53] Failed: www.huffpost.com
+[2025-12-01 17:50:54] Failed: feeds.a.dj.com
+[2025-12-01 17:50:54] Failed: www.economist.com
+[2025-12-01 17:50:55] Failed: www.ft.com
+[2025-12-01 17:50:55] Failed: www.axios.com
+[2025-12-01 17:50:58] Failed: www.apnews.com
+[2025-12-01 17:50:58] Failed: rssfeeds.usatoday.com
+[2025-12-01 17:50:58] Failed: www.cbsnews.com
+[2025-12-01 17:51:00] Failed: www.bbc.com
+[2025-12-01 17:51:01] Failed: www.cnn.com
+[2025-12-01 17:51:02] Failed: www.wsj.com
+[2025-12-01 17:51:02] Failed: www.bloomberg.com
+[2025-12-01 17:51:04] Failed: moxie.foxnews.com
+[2025-12-01 17:51:05] Failed: www.dailywire.com
+[2025-12-01 17:51:06] Failed: www.zerohedge.com
+[2025-12-01 17:51:06] Failed: mises.org
+[2025-12-01 17:51:25] Timeout/no response: https://www.newsmax.com/rss/newsfront.xml                                # Newsmax
+[2025-12-01 17:51:25] Failed: www.newsmax.com
+[2025-12-01 17:51:26] Failed: www.theepochtimes.com
+[2025-12-01 17:51:28] Failed: www.wnd.com
+[2025-12-01 17:51:29] Failed: www.thedailybeast.com
+[2025-12-01 17:51:30] Failed: babylonbee.com
+[2025-12-01 17:51:31] Failed: hotair.com
+[2025-12-01 17:58:08] === UMBA DAILY RUN STARTED ===
+[2025-12-01 17:58:08] === STARTING DAILY HEADLINE PULL ===
+[2025-12-01 17:58:08] Failed: rss.nytimes.com
+[2025-12-01 17:58:26] Timeout/no response: https://feeds.washingtonpost.com/rss/world                               # WaPo World
+[2025-12-01 17:58:26] Failed: feeds.washingtonpost.com
+[2025-12-01 17:58:27] Failed: rss.cnn.com
+[2025-12-01 17:58:28] Failed: feeds.bbci.co.uk
+[2025-12-01 17:58:29] Failed: www.theguardian.com
+[2025-12-01 17:58:29] Failed: www.reuters.com
+[2025-12-01 17:58:30] Failed: www.theatlantic.com
+[2025-12-01 17:58:30] Failed: www.vox.com
+[2025-12-01 17:58:31] Failed: www.bloomberg.com
+[2025-12-01 17:58:32] Failed: www.politico.com
+[2025-12-01 17:58:43] Exception fetching http://feeds.huffingtonpost.com/huffingtonpost/raw_news                  # HuffPost Raw → feeds.huffingtonpost.com/80 getaddrinfo error 11001
+[2025-12-01 17:58:43] Failed: feeds.huffingtonpost.com
+[2025-12-01 17:58:44] Failed: www.msnbc.com
+[2025-12-01 17:58:44] Failed: www.aljazeera.com
+[2025-12-01 17:58:45] Failed: www.nbcnews.com
+[2025-12-01 17:58:46] Failed: abcnews.go.com
+[2025-12-01 17:58:46] Failed: feeds.feedburner.com
+[2025-12-01 17:58:47] Failed: www.huffpost.com
+[2025-12-01 17:58:47] Failed: feeds.a.dj.com
+[2025-12-01 17:58:48] Failed: www.economist.com
+[2025-12-01 17:58:48] Failed: www.ft.com
+[2025-12-01 17:58:49] Failed: www.axios.com
+[2025-12-01 17:58:50] Failed: www.apnews.com
+[2025-12-01 17:58:50] Failed: rssfeeds.usatoday.com
+[2025-12-01 17:58:51] Failed: www.cbsnews.com
+[2025-12-01 17:58:52] Failed: www.bbc.com
+[2025-12-01 17:58:54] Failed: www.cnn.com
+[2025-12-01 17:58:54] Failed: www.wsj.com
+[2025-12-01 17:58:55] Failed: www.bloomberg.com
+[2025-12-01 17:58:56] Failed: moxie.foxnews.com
+[2025-12-01 17:58:57] Failed: www.dailywire.com
+[2025-12-01 17:58:57] Failed: www.zerohedge.com
+[2025-12-01 17:58:58] Failed: mises.org
+[2025-12-01 17:59:17] Timeout/no response: https://www.newsmax.com/rss/newsfront.xml                                # Newsmax
+[2025-12-01 17:59:17] Failed: www.newsmax.com
+[2025-12-01 17:59:17] Failed: www.theepochtimes.com
+[2025-12-01 17:59:20] Failed: www.wnd.com
+[2025-12-01 17:59:21] Failed: www.thedailybeast.com
+[2025-12-01 17:59:22] Failed: babylonbee.com
+[2025-12-01 17:59:23] Failed: hotair.com
+[2025-12-01 18:00:06] Wrote 131 new headlines (38 feeds failed)
+[2025-12-01 18:00:06] === PULL COMPLETE – 131 new headlines ===
+[2025-12-01 18:00:06] === CALCULATING VOLUME BIAS ===
+[2025-12-01 18:00:06] CRITICAL ERROR: Symbol’s function definition is void: string>=
+[2025-12-01 18:25:15] === UMBA DAILY RUN STARTED ===
+[2025-12-01 18:25:15] === STARTING DAILY HEADLINE PULL ===
+[2025-12-01 18:25:15] CRITICAL ERROR: Symbol’s function definition is void: umba-pull-one-feed-safe
+[2025-12-01 18:40:33] === UMBA DAILY RUN STARTED ===
+[2025-12-01 18:40:33] === STARTING ELFEED DAILY PULL (parallel) ===
+[2025-12-01 18:40:33] CRITICAL ERROR: `let' bindings can have only one value-form: feed-urls, (let ((temp-buffer (generate-new-buffer " *temp*" t))) (save-current-buffer (set-buffer temp-buffer) (unwind-protect (progn (insert-file-contents umba-outlets-file) (goto-char (point-min)) (while (re-search-forward "^\\(https?://\\S-+\\)" nil t) (setq feed-urls (cons (match-string 1) feed-urls)))) (and (buffer-name temp-buffer) (kill-buffer temp-buffer))))), (elfeed-feeds (nreverse feed-urls)), (today (umba-today-iso)), new-count
+[2025-12-01 18:54:00] === UMBA DAILY RUN STARTED ===
+[2025-12-01 18:54:00] === STARTING ELFEED DAILY PULL (parallel) ===
+[2025-12-01 18:54:00] CRITICAL ERROR: Symbol’s value as variable is void: elfeed-waiting
+[2025-12-01 19:03:57] === UMBA DAILY RUN STARTED ===
+[2025-12-01 19:03:57] === STARTING ELFEED DAILY PULL (parallel) ===
+[2025-12-01 19:03:57] CRITICAL ERROR: Symbol’s value as variable is void: g
+[2025-12-02 18:12:27] === UMBA DAILY RUN STARTED ===
+[2025-12-02 18:12:27] === STARTING ELFEED DAILY PULL (parallel) ===
+[2025-12-02 18:12:27] CRITICAL ERROR: Symbol’s function definition is void: elfeed-db-initialize
+[2025-12-02 18:17:04] === UMBA DAILY RUN STARTED ===
+[2025-12-02 18:17:04] === STARTING ELFEED DAILY PULL (parallel) ===
+[2025-12-02 18:17:04] CRITICAL ERROR: Symbol’s function definition is void: elfeed-db-entries
+[2025-12-02 18:28:42] === UMBA DAILY RUN STARTED ===
+[2025-12-02 18:28:42] === STARTING ELFEED DAILY PULL (parallel) ===
+[2025-12-02 18:28:42] Elfeed saved 0 new headlines today
+[2025-12-02 18:28:42] === ELFEED PULL COMPLETE ===
+[2025-12-02 18:28:43] === CALCULATING VOLUME BIAS ===
+[2025-12-02 18:28:43] CRITICAL ERROR: Symbol’s function definition is void: string>=
+[2025-12-02 18:32:34] === UMBA DAILY RUN STARTED ===
+[2025-12-02 18:32:34] === STARTING ELFEED DAILY PULL (parallel) ===
+[2025-12-02 18:32:34] Elfeed saved 0 new headlines today
+[2025-12-02 18:32:34] === ELFEED PULL COMPLETE ===
+[2025-12-02 18:32:34] === CALCULATING VOLUME BIAS ===
+[2025-12-02 18:32:34] Volume Bias updated → Left=10 Right=106 VAR=0.09
+[2025-12-02 18:32:34] === DAILY RUN SUCCESSFUL ===
+[2025-12-02 18:53:14] === UMBA DAILY RUN STARTED ===
+[2025-12-02 18:53:14] === STARTING ELFEED DAILY PULL (parallel) ===
+[2025-12-02 18:53:14] Elfeed saved 0 new headlines today
+[2025-12-02 18:53:14] === ELFEED PULL COMPLETE ===
+[2025-12-02 18:53:14] === CALCULATING VOLUME BIAS ===
+[2025-12-02 18:53:14] Volume Bias updated → Left=10 Right=106 VAR=0.09
+[2025-12-02 18:53:14] === DAILY RUN SUCCESSFUL ===

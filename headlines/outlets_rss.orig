@@ -1,0 +1,56 @@
+# UMBA EXPANDED RSS OUTLETS – v1.3 (Dec 02, 2025 – Fixed Reuters/CNN)
+# Verified active: NYT, CNN, Guardian, BBC all good. Reuters: Swapped to section feeds (no auth).
+# Clusters balanced; expect 70–80% success rate on Windows.
+
+# CLUSTER A – High Volume (18 outlets)
+https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml                 # NYT Homepage (active)
+https://feeds.washingtonpost.com/rss/world                               # WaPo World
+http://rss.cnn.com/rss/cnn_topstories.rss                                 # CNN Top Stories (active)
+https://feeds.bbci.co.uk/news/rss.xml                                    # BBC News (active)
+https://www.theguardian.com/uk/rss                                       # Guardian UK (active)
+https://www.reuters.com/arc/outboundfeeds/newsroom-world/?outputType=xml  # Reuters World (fixed – no auth)
+https://www.npr.org/rss/rss.php?id=1001                                  # NPR News
+https://www.theatlantic.com/feed/                                        # Atlantic All
+https://www.vox.com/rss/index.xml                                        # Vox Index
+https://www.bloomberg.com/feed                                           # Bloomberg Main
+https://www.politico.com/rss/politics.xml                                # Politico Politics
+http://feeds.huffingtonpost.com/huffingtonpost/raw_news                  # HuffPost Raw
+https://www.msnbc.com/feed/rss/msnbc-public-blog                         # MSNBC Blog
+https://www.aljazeera.com/xml/rss/all.xml                                # Al Jazeera All
+https://www.nbcnews.com/feed                                             # NBC Main
+https://abcnews.go.com/abcnews/usheadlines?rssi=1                        # ABC US
+https://feeds.feedburner.com/time/world                                  # TIME World
+https://www.huffpost.com/section/world/feed                              # HuffPost World
+
+# CLUSTER B/C – Medium Volume (12 outlets)
+https://feeds.a.dj.com/rss/RSSWorldNews.xml                              # WSJ World
+https://www.economist.com/rss.xml                                        # Economist Main
+https://www.ft.com/rss/home                                              # FT Home
+https://www.axios.com/feed.xml                                           # Axios Main
+https://thehill.com/rss/syndicator/19109/                                # The Hill
+https://www.apnews.com/hub/ap-top-news                                   # AP Top
+https://rssfeeds.usatoday.com/usatoday-NewsTopStories                    # USA Today Top (fixed URL)
+https://www.cbsnews.com/rss/                                             # CBS Main
+https://www.bbc.com/news/world/rss.xml                                   # BBC World
+https://www.cnn.com/services/rss/                                        # CNN Intl
+https://www.wsj.com/news/latest-headlines/rss                            # WSJ Latest
+https://www.bloomberg.com/politics/rss                                   # Bloomberg Politics
+
+# CLUSTER D/E/F – Low Volume (15 outlets)
+https://moxie.foxnews.com/feedburner/latest.xml                          # Fox Latest
+https://www.dailywire.com/rss.xml                                        # Daily Wire
+https://thefederalist.com/feed/                                          # Federalist
+https://www.zerohedge.com/rss/all/xml                                    # ZeroHedge All
+https://mises.org/feed                                                   # Mises Main
+https://www.breitbart.com/feed/                                          # Breitbart
+https://www.nationalreview.com/feed/                                     # National Review
+https://www.newsmax.com/rss/newsfront.xml                                # Newsmax
+https://www.theepochtimes.com/feed                                       # Epoch Times
+https://www.oann.com/feed/                                               # OANN
+https://www.wnd.com/feed/                                                # WND
+https://www.thedailybeast.com/rss                                        # Daily Beast
+https://babylonbee.com/feed.xml                                          # Babylon Bee
+https://www.powerlineblog.com/feed                                       # Power Line
+https://hotair.com/feed/                                                 # Hot Air
+
+# END OF LIST

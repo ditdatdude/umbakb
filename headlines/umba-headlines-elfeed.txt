@@ -4,11 +4,6 @@
 ;; Version: 2025-12-02 | 100 % pure Emacs Lisp | Zero external dependencies
 ;; Works in Emacs 27+ | Survives network drops, bad feeds, and power failures
 ;; ===========================================================================
-(unless (fboundp 'string>=)
-  (defun string>= (s1 s2)
-    "Return non-nil if string S1 is lexicographically >= S2.
-This is a compatibility shim for Emacs builds without `string>=`."
-    (not (string< s1 s2))))
 
 ;; ──────────────────────────────────────────────────────────────
 ;; UMBA base directory – explicit path with auto fallback
@@ -62,116 +57,59 @@ This is a compatibility shim for Emacs builds without `string>=`."
 (defun umba-today-iso ()
   (format-time-string "%Y-%m-%d"))
 
-;; ──────────────────────────────────────────────────────────────
-;; Python Headline Harvester and open
-;; ──────────────────────────────────────────────────────────────
-(defun umba-run-harvest-and-open ()
-  "Run the Python UMBA harvester, then show today's headlines."
-  (interactive)
-  (let* ((script "C:/msys64/home/umba-kb/headlines/umba_harvest.py")
-         (default-directory (file-name-directory script))
-         (python-exe "python") ;; or python3 depending on your PATH
-         (buf (get-buffer-create "*UMBA Harvest Log*")))
-    (with-current-buffer buf
-      (erase-buffer)
-      (insert (format "Running UMBA harvest at %s...\n\n" (current-time-string))))
-    (pop-to-buffer buf)
-
-    ;; Run python script asynchronously
-    (make-process
-     :name "umba-harvest"
-     :buffer buf
-     :command (list python-exe script)
-     :sentinel
-     (lambda (proc event)
-       (when (string= event "finished\n")
-         (with-current-buffer "*UMBA Harvest Log*"
-           (goto-char (point-max))
-           (insert "\n=== Harvest Complete ===\n"))
-         (umba-open-todays-headlines))))))
-
 
 ;; ──────────────────────────────────────────────────────────────
 ;; FULL ELFEED REPLACEMENT – async, parallel, zero failures
 ;; ──────────────────────────────────────────────────────────────
 (require 'elfeed)
-(require 'elfeed-db)
 
-(defvar umba-elfeed-db-directory
-  (expand-file-name "headlines/elfeed-db/" umba-base-dir)
-  "Elfeed DB directory used by the UMBA headline pipeline.")
-
-;; Ensure the UMBA DB directory exists
-(make-directory umba-elfeed-db-directory t)
-
-;; ──────────────────────────────────────────────────────────────
-;; FINAL WORKING ELFEED DAILY PULL – runs first time, every time
-;; ──────────────────────────────────────────────────────────────
 (defun umba-daily-headline-pull ()
-  "Pull all feeds from outlets_rss.txt using Elfeed – fast, parallel, perfect UTF-8.
-Uses UMBA's own Elfeed database so it does not interfere with interactive Elfeed."
+  "Pull all feeds from outlets_rss.txt using Elfeed – fast, parallel, perfect UTF-8."
   (interactive)
-  (umba-log "=== STARTING ELFEED DAILY PULL (parallel) ===")  (let* ((elfeed-db-directory umba-elfeed-db-directory) ; UMBA-specific DB
-         ;; Load feed URLs from file (skip comments and empty lines)
-         (raw-urls
-          (with-temp-buffer
-            (insert-file-contents umba-outlets-file)
-            (let (urls)
-              (while (re-search-forward "^\\(https?://\\S-+\\)" nil t)
-                (push (match-string 1) urls))
-              (nreverse urls))))
-         (elfeed-feeds raw-urls)
-         (today (umba-today-iso))
-         (new-count 0))
+  (umba-log "=== STARTING ELFEED DAILY PULL (parallel) ===")
 
-    ;; Ensure DB for UMBA is initialized
-    ;; Ensure DB for UMBA is initialized
-(elfeed-db-load)
-(when (fboundp 'elfeed-db-initialize)
-  (elfeed-db-initialize))
+  ;; Load the feed list (skip comment lines)
+  (let* ((feed-urls
+        (with-temp-buffer
+          (insert-file-contents umba-outlets-file)
+          (goto-char (point-min))
+          (while (re-search-forward "^\\(https?://\\S-+\\)" nil t)
+            (push (match-string 1) feed-urls)))
+        (elfeed-feeds (nreverse feed-urls))
+        (today (umba-today-iso))
+        new-count)
 
-
-    ;; Trigger the async update
+    ;; Start the async update
     (elfeed-update)
 
-    ;; Wait up to 120 seconds (plenty for ~45 feeds)
-    (with-timeout (120
-                   (umba-log "Warning: Elfeed timed out after 120s – saving what we have"))
-      (while (and (boundp 'elfeed-waiting) elfeed-waiting)
+    ;; Wait max 90 seconds for everything to finish
+    (with-timeout (90 (umba-log "Elfeed timed out – partial data saved"))
+      (while elfeed-waiting
         (accept-process-output nil 0.5)))
 
-    ;; Export only today’s entries
+    ;; Export only today’s entries to CSV
     (with-temp-file umba-master-csv
       (when (file-exists-p umba-master-csv)
         (insert-file-contents umba-master-csv))
       (goto-char (point-max))
+      (setq new-count 0)
+      (elfeed-search-selected
+       (dolist (entry (elfeed-search-entries))
+         (let* ((feed (elfeed-entry-feed entry))
+                (feed-url (elfeed-feed-url feed))
+                (domain (replace-regexp-in-string ".*//\\|/[[:space:]].*" "" feed-url))
+                (title (elfeed-entry-title entry))
+                (link  (elfeed-entry-link entry))
+                (date  (format-time-string "%Y-%m-%d" (elfeed-entry-date entry))))
+           (when (string= date today)
+             (let ((line (format "%s,%s,\"%s\",\"%s\"\n"
+                                 today domain title link)))
+               (unless (search-forward line nil t)
+                 (insert line)
+                 (cl-incf new-count))))))))
 
-      (with-elfeed-db-visit (entry _)
-  (let* ((feed     (elfeed-entry-feed entry))
-         (feed-url (elfeed-feed-url feed))
-         (domain   (replace-regexp-in-string ".*//\\|/[^\s]*" "" feed-url))
-         (title    (or (elfeed-meta entry :title)
-                       (elfeed-entry-title entry)
-                       "No title"))
-         (link     (or (elfeed-entry-link entry) ""))
-         (date     (format-time-string "%Y-%m-%d"
-                                       (elfeed-entry-date entry))))
-    (when (and (string= date today)
-               (not (string-empty-p title))
-               (not (string-empty-p link)))
-      (let ((line (format "%s,%s,\"%s\",\"%s\"\n"
-                          today domain title link)))
-        (save-excursion
-          (goto-char (point-min))
-          (unless (search-forward line nil t)
-            (goto-char (point-max))
-            (insert line)
-            (cl-incf new-count)))))))
-
-     
-    (umba-log "Elfeed saved %d new headlines today" new-count)
-    (umba-log "=== ELFEED PULL COMPLETE ==="))))
-
+    (umba-log "Elfeed saved %d new headlines today" new-count))
+  (umba-log "=== ELFEED PULL COMPLETE ===")))
 
 (defun umba-calculate-volume-bias ()
   "30-day rolling Volume Asymmetry Ratio (VAR) → volume_bias_current.csv"
@@ -225,39 +163,6 @@ Uses UMBA's own Elfeed database so it does not interfere with interactive Elfeed
 ;; (run-at-time "04:30" (* 24 3600) #'umba-daily-run)
 
 (global-set-key (kbd "C-c u h") #'umba-daily-run)
-
-;; ===========================================================================
-;; Add a simple Emacs command to view today’s headlines
-;; ===========================================================================
-(defun umba-open-todays-headlines ()
-  "Show today's harvested headlines from `umba-master-csv` in a read-only buffer.
-Assumes CSV rows like: DATE,DOMAIN,TITLE,LINK."
-  (interactive)
-  (unless (and (boundp 'umba-master-csv)
-               (file-exists-p umba-master-csv))
-    (user-error "umba-master-csv not found: %s" umba-master-csv))
-  (let* ((today (format-time-string "%Y-%m-%d"))
-         (buf (get-buffer-create "*UMBA Today Headlines*")))
-    (with-current-buffer buf
-      (erase-buffer)
-      (insert (format "UMBA headlines for %s\n\n" today))
-      (insert "DATE,DOMAIN,TITLE,LINK\n")
-      (insert "----------------------------------------\n")
-      (let ((coding-system-for-read 'utf-8))
-        (with-temp-buffer
-          (insert-file-contents umba-master-csv)
-          (goto-char (point-min))
-          (while (re-search-forward
-                  (concat "^" (regexp-quote today) ",\\(.*\\)$")
-                  nil t)
-            (let ((rest (match-string 1)))
-              (with-current-buffer buf
-                (insert (format "%s,%s\n" today rest)))))))
-      (goto-char (point-min))
-      (csv-mode)
-      (read-only-mode 1))
-    (pop-to-buffer buf)))
-
 (provide 'umba-headlines-hardened)
 
 ;; ===========================================================================
